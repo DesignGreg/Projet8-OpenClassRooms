@@ -1,0 +1,23 @@
+BUGS :
+
+Faute de frappe :
+
+ligne 84 controller.js
+Controller.prototype.adddItem au lieu de Controller.prototype.addItem
+
+Conflit ID :
+ligne 77 de store.js
+
+
+AMELIORATIONS :
+
+Boucle ligne 175 view.js
+
+controller.js ligne 163, forEach inutile
+
+ligne 132 store.js
+
+Modifier ligne 126 controller.js
+title = title.trim()
+http://www.benchresources.net/remove-leading-and-trailing-whitespace-from-javascript-string/
+
