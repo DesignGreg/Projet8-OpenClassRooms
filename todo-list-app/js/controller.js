@@ -121,15 +121,19 @@
 	 * Finishes the item editing mode successfully.
 	 */
 	Controller.prototype.editItemSave = function (id, title) {
-		var self = this;
+    var self = this;
+    
+    // Remplacer les 2 While par Trim, maintenant la suppression des espaces blancs fonctionne.
 
-		while (title[0] === " ") {
-			title = title.slice(1);
-		}
+    title = title.trim()
 
-		while (title[title.length-1] === " ") {
-			title = title.slice(0, -1);
-		}
+		// while (title[0] === " ") {
+		// 	title = title.slice(1);
+		// }
+
+		// while (title[title.length-1] === " ") {
+		// 	title = title.slice(0, -1);
+		// }
 
 		if (title.length !== 0) {
 			self.model.update(id, {title: title}, function () {
