@@ -2,7 +2,7 @@ BUGS :
 
 Faute de frappe :
 
-ligne 84 controller.js
+ligne 96 controller.js
 Controller.prototype.adddItem au lieu de Controller.prototype.addItem
 
 Conflit ID :
