@@ -75,54 +75,44 @@
      * @param {number} id An optional param to enter an ID of an item to update
      */
 
-    // Transfert de la génération de l'ID dans une fonction séparée.
-    // Si l'ID est identique, rappelle de cette fonction plutôt qu'écraser les données existantes.
-
-    // Generate ID
-    Store.prototype.generateID = function () {
-      var newId = "";
-      var charset = "0123456789";
-
-      for (var i = 0; i < 6; i++) {
-        newId += charset.charAt(Math.floor(Math.random() * charset.length));
-      }
-
-    return newId;
-    }
-
     Store.prototype.save = function (updateData, callback, id) {
       var data = JSON.parse(localStorage[this._dbName]);
       var todos = data.todos;
-
+  
       callback = callback || function () {};
-      
-      this.generateID();
-
+  
       // Generate an ID
-      // var newId = "";
-      // var charset = "0123456789";
+      var array = new Uint32Array(10);
+      var crypto = window.crypto.getRandomValues(array);
+      console.log(crypto);
 
-      // for (var i = 0; i < 6; i++) {
-      //   newId += charset.charAt(Math.floor(Math.random() * charset.length));
-      // }
+      var randomSelectInArray = Math.floor(Math.random() * 10);
 
-      // Regénérer ID si ID déjà existant
+      var date = (new Date()).getTime();
+      console.log(date);
+
+      var newId = crypto[randomSelectInArray] + date;
+      console.log(newId);
+  
+      // If an ID was actually given, find the item and update each property
       if (id) {
         for (var i = 0; i < todos.length; i++) {
           if (todos[i].id === id) {
-            this.generateID();
+            for (var key in updateData) {
+              todos[i][key] = updateData[key];
+            }
             break;
           }
         }
-
+  
         localStorage[this._dbName] = JSON.stringify(data);
         callback.call(this, todos);
       } else {
-
-        // Assign an ID
-        updateData.id = parseInt(this.generateID());
-
-
+  
+          // Assign an ID
+        updateData.id = parseInt(newId);
+  
+  
         todos.push(updateData);
         localStorage[this._dbName] = JSON.stringify(data);
         callback.call(this, [updateData]);
@@ -130,29 +120,6 @@
     };
 
 
-    // If an ID was actually given, find the item and update each property
-    // if (id) {
-    //   for (var i = 0; i < todos.length; i++) {
-    //     if (todos[i].id === id) {
-    //       for (var key in updateData) {
-    //         todos[i][key] = updateData[key];
-    //       }
-    //       break;
-    //     }
-    //   }
-
-    //   localStorage[this._dbName] = JSON.stringify(data);
-    //   callback.call(this, todos);
-    // } else {
-
-    //   // Assign an ID
-    //   updateData.id = parseInt(newId);
-
-
-    //   todos.push(updateData);
-    //   localStorage[this._dbName] = JSON.stringify(data);
-    //   callback.call(this, [updateData]);
-    // }
 
   /**
    * Will remove an item from the Store based on its ID
