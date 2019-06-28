@@ -172,7 +172,9 @@
 
   View.prototype.bind = function (event, handler) {
     var self = this;
+    
     // Amélioration avec un Switch, une lecture un peu améliorée pour une liste.
+
     switch (event) {
       case 'newTodo':
         $on(self.$newTodo, 'change', function () {
