@@ -205,12 +205,12 @@
 	 *                          or not
 	 * @param {boolean|undefined} silent Prevent re-filtering the todo items
 	 */
-	Controller.prototype.toggleComplete = function (id, completed, silent) {
+	Controller.prototype.toggleComplete = function (id, checkbox, silent) {
 		var self = this;
-		self.model.update(id, { completed: completed }, function () {
+		self.model.update(id, { completed: checkbox }, function () {
 			self.view.render('elementComplete', {
 				id: id,
-				completed: completed
+				completed: checkbox
 			});
 		});
 

@@ -82,16 +82,17 @@
       callback = callback || function () {};
   
       // Generate an ID
-      var array = new Uint32Array(10);
+      var array = new Uint32Array(1);
       var crypto = window.crypto.getRandomValues(array);
       console.log(crypto);
 
-      var randomSelectInArray = Math.floor(Math.random() * 10);
+      // Si on veut obtenir 10 éléments dans le array, et en sélectionner 1 au hasard
+      // var randomSelectInArray = Math.floor(Math.random() * 10);
 
       var date = (new Date()).getTime();
       console.log(date);
 
-      var newId = crypto[randomSelectInArray] + date;
+      var newId = crypto[0] + date;
       console.log(newId);
   
       // If an ID was actually given, find the item and update each property
