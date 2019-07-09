@@ -65,7 +65,7 @@ describe('controller', function () {
 
 		subject.setView('');
 
-		expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+    expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
 	});
 
 	describe('routing', function () {
@@ -91,6 +91,7 @@ describe('controller', function () {
 		it('should show active entries', function () {
       // TODO: write test
       var todo = {title: 'my todo', completed: false};
+      // var todo2 = {title: 'my todo', completed: true};
 
 			setUpModel([todo]);
 
