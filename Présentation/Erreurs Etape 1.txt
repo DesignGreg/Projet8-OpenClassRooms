@@ -21,3 +21,7 @@ Modifier ligne 126 controller.js
 title = title.trim()
 http://www.benchresources.net/remove-leading-and-trailing-whitespace-from-javascript-string/
 
+
+---
+
+Test rajouté highlight completed ligne 176
