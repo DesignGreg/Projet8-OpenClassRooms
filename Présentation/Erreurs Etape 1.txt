@@ -8,6 +8,9 @@ Controller.prototype.adddItem au lieu de Controller.prototype.addItem
 Conflit ID :
 ligne 77 de store.js
 
+index.html ligne 16
+Il manquait le id="toggle-all" qui va avec le for du label pour permettre de compléter toutes les tâches en un click.
+
 
 AMELIORATIONS :
 
@@ -24,4 +27,6 @@ http://www.benchresources.net/remove-leading-and-trailing-whitespace-from-javasc
 
 ---
 
-Test rajouté highlight completed ligne 176
+Test rajouté highlight completed ligne 234
+
+2 test ligne 97 et 130
