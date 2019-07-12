@@ -91,8 +91,9 @@
 	};
 
 	/**
-	 * Returns a count of all todos
-	 */
+   * Returns a count of all todos
+   * @param {function} callback Callback to loop on all the items
+   */
 	Model.prototype.getCount = function (callback) {
 		var todos = {
 			active: 0,

@@ -91,10 +91,12 @@
 	/**
 	 * An event to fire whenever you want to add an item. Simply pass in the event
 	 * object and it'll handle the DOM insertion and saving of the new item.
+   * 
+   * @param {string} title the name of the ToDo
 	 */
 
-   // addItem et non adddItem
 	Controller.prototype.addItem = function (title) {
+    // addItem et non adddItem
 		var self = this;
 
 		if (title.trim() === '') {
@@ -107,8 +109,10 @@
 		});
 	};
 
-	/*
-	 * Triggers the item editing mode.
+	/**
+   * Triggers the item editing mode.
+   * 
+   * @param {integer} id ID of the item to modify
 	 */
 	Controller.prototype.editItem = function (id) {
 		var self = this;
@@ -117,8 +121,11 @@
 		});
 	};
 
-	/*
+	/**
 	 * Finishes the item editing mode successfully.
+   * 
+   * @param {integer} id ID of the modified item to save
+   * @param {string} title name of the modified item to save
 	 */
 	Controller.prototype.editItemSave = function (id, title) {
     var self = this;
@@ -144,8 +151,10 @@
 		}
 	};
 
-	/*
+	/**
 	 * Cancels the item editing mode.
+   * 
+   *  @param {integer} id ID of the item for which the modification was canceled
 	 */
 	Controller.prototype.editItemCancel = function (id) {
 		var self = this;
@@ -222,6 +231,8 @@
 	/**
 	 * Will toggle ALL checkboxes' on/off state and completeness of models.
 	 * Just pass in the event object.
+   * 
+   *  @param {boolean} completed checkbox status
 	 */
 	Controller.prototype.toggleAll = function (completed) {
 		var self = this;
@@ -274,6 +285,8 @@
 
 	/**
 	 * Simply updates the filter nav's selected states
+   * 
+   *  @param {string} currentPage current page route
 	 */
 	Controller.prototype._updateFilterState = function (currentPage) {
 		// Store a reference to the active route, allowing us to re-filter todo

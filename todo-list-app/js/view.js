@@ -133,11 +133,19 @@
 		viewCommands[viewCmd]();
 	};
 
+  /**
+   * Give an ID to the targeted element
+   * @param {object} element Targeted element
+   */
 	View.prototype._itemId = function (element) {
 		var li = $parent(element, 'li');
 		return parseInt(li.dataset.id, 10);
 	};
 
+  /**
+   * EventListener which handles text display after modification is done
+   * @param {function} handler Callback used if modification done
+   */
 	View.prototype._bindItemEditDone = function (handler) {
 		var self = this;
 		$delegate(self.$todoList, 'li .edit', 'blur', function () {
@@ -158,6 +166,10 @@
 		});
 	};
 
+  /**
+   * EventListener which handles text display after modification is canceled
+   * @param {function} handler Callback used if modification canceled 
+   */
 	View.prototype._bindItemEditCancel = function (handler) {
 		var self = this;
 		$delegate(self.$todoList, 'li .edit', 'keyup', function (event) {
@@ -170,6 +182,12 @@
 		});
 	};
 
+  /**
+   * Used in controller.js
+   * Called by the methods of controller.js
+   * @param {function} event Called function, checked in the switch
+   * @param {function} handler Callback used if the function is called
+   */
   View.prototype.bind = function (event, handler) {
     var self = this;
     
