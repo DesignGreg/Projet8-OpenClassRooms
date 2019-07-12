@@ -1,0 +1,11 @@
+{
+  "opts": {
+    "template": "../node_modules/docdash",
+    "recurse": true,
+    "private": true
+  },
+  "source": {
+    "include": ["app.js", "controller.js", "helpers.js", "model.js", "store.js", "template.js", "view.js"]
+  },
+  "sourceType": "module"
+}

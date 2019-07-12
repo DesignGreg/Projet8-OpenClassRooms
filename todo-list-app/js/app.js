@@ -4,7 +4,7 @@
 
 	/**
 	 * Sets up a brand new Todo list.
-	 *
+   * @constructor
 	 * @param {string} name The name of your new to do list.
 	 */
 	function Todo(name) {
@@ -18,6 +18,7 @@
 	var todo = new Todo('todos-vanillajs');
 
   /**
+   * 
    * Initialize the view
    */
 	function setView() {
