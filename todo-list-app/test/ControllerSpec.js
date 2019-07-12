@@ -279,6 +279,41 @@ describe('controller', function () {
       }, jasmine.any(Function));
     });
 
+    it('should toggle all todos to active', function () {
+      // TODO: write test
+      var todos = [{
+        id: 1,
+        title: 'todo1',
+        completed: true
+      }, {
+        id: 2,
+        title: 'todo2',
+        completed: true
+      }];
+
+      setUpModel(todos);
+
+      subject.setView('');
+
+      // Vérification que l'utilisateur passe bien les deux todo en active (non-complétées)
+      view.trigger('toggleAll', {
+        completed: false
+      });
+
+      // Vérification que le model lise bien la todo dans son état initial
+      expect(model.read).toHaveBeenCalledWith({
+        completed: true
+      }, jasmine.any(Function));
+      // Vérification que le model met à jour la todo 1 en completed: false suite à l'action de l'utilisateur
+      expect(model.update).toHaveBeenCalledWith(1, {
+        completed: false
+      }, jasmine.any(Function));
+      // Vérification que le model met à jour la todo 2 en completed: false suite à l'action de l'utilisateur
+      expect(model.update).toHaveBeenCalledWith(2, {
+        completed: false
+      }, jasmine.any(Function));
+    });
+
     it('should update the view', function () {
       // TODO: write test
       var todo = {
