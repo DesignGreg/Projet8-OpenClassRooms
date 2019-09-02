@@ -5,6 +5,7 @@ Reprendre et améliorer un projet existant.
 Ce projet est divisé en 4 étapes :
 
 Etape 1 : Corriger le code et l'améliorer
+Repérer des bugs et améliorer certains bouts de code.
 
 Etape 2 : Implémenter les tests avec le framework Jasmine
 
